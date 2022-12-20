@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const trainerSlice = createSlice({
     name: 'trainer',
-    initialState: null,
+    initialState: '',
     reducers: {
-        setTrainer: (state, actions) => {
-            return actions.payload
+        setTrainer: (state, action) => {
+            return action.payload
         }
     }
 })

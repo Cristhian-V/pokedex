@@ -1,24 +1,22 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
-import { setTrainer } from './store/slices/user.slice'
-
+import Inicio from './components/Inicio'
+import Layout from './components/Layout'
+import Pokedex from './components/Pokedex'
 
 function App() {
-  const { trainer } = useSelector(state => state)
-
-  const dispatch = useDispatch()
-
-  const trainerUpd = () => {
-    dispatch(setTrainer('Cristhian'))
-  }
-
-  console.log(trainer)
 
   return (
     <div className="App">
-      <h1>PokeDex</h1>
-      <p>{trainer}</p>
-      <button onClick={trainerUpd}>user</button>
+      <HashRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path='/' element={<Inicio />}/>
+            <Route path='/pokedex' element={<Pokedex />}/>
+            <Route />
+          </Route>
+        </Routes>
+      </HashRouter>
     </div>
   )
 }
